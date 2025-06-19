@@ -55,7 +55,7 @@ rl.on('line', (input) => {
 
   // Handle special built-in commands
   if (trimmedInput === 'exit' || trimmedInput === 'quit') {
-    logger.info('🛑 Shutting down all bots...');
+    logger.info('Shutting down all bots...');
     botManager.disconnectAll();
     process.exit(0);
   }
