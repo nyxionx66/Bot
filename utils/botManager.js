@@ -133,7 +133,7 @@ class BotManager {
   setActiveBot(botId) {
     if (this.bots.has(botId)) {
       this.activeBotId = botId;
-      logger.info(`👑 Active bot switched → ${botId}`);
+      logger.info(`Active bot switched to ${botId}`);
       return true;
     }
     return false;
