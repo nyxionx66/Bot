@@ -6,6 +6,7 @@ class Logger {
     this.lastLogTime = 0;
     this.duplicateCount = 0;
     this.lastMessage = '';
+    this.chatEnabled = true;
   }
 
   timestamp() {
@@ -29,12 +30,18 @@ class Logger {
       return true;
     } else {
       if (this.duplicateCount > 0) {
-        console.log(chalk.gray(`  └─ (repeated ${this.duplicateCount} times)`));
+        console.log(chalk.gray(`  (repeated ${this.duplicateCount} times)`));
         this.duplicateCount = 0;
       }
       this.lastMessage = message;
       return false;
     }
+  }
+
+  // Chat toggle functionality
+  setChatEnabled(enabled) {
+    this.chatEnabled = enabled;
+    this.info(`Chat logging ${enabled ? 'enabled' : 'disabled'}`);
   }
 
   info(msg, ...args) {
@@ -55,7 +62,7 @@ class Logger {
   }
 
   success(msg, ...args) {
-    const message = this.formatMessage(chalk.green('OK'), msg, ...args);
+    const message = this.formatMessage(chalk.green('SUCCESS'), msg, ...args);
     if (!this.isDuplicate(message)) {
       console.log(message);
     }
@@ -73,14 +80,16 @@ class Logger {
   }
 
   chat(msg, ...args) {
-    console.log(this.formatMessage(chalk.cyan('CHAT'), msg, ...args));
+    if (this.chatEnabled) {
+      console.log(this.formatMessage(chalk.cyan('CHAT'), msg, ...args));
+    }
   }
 
   bot(msg, ...args) {
     console.log(this.formatMessage(chalk.blueBright('BOT'), msg, ...args));
   }
 
-  // New method for bot-specific actions
+  // Method for bot-specific actions
   botAction(botId, action, msg, ...args) {
     const prefix = chalk.dim(`[${botId}]`);
     const actionColor = action === 'say' ? chalk.green : chalk.blue;
@@ -101,14 +110,14 @@ class Logger {
 
   // Clean separator for better readability
   separator() {
-    console.log(chalk.gray('─'.repeat(50)));
+    console.log(chalk.gray('──────────────────────────────────────────────────'));
   }
 
   // Mass action logging
   massAction(action, botIds, msg) {
     const count = botIds.length;
     const botsStr = count > 3 ? `${botIds.slice(0, 3).join(', ')}... (+${count - 3} more)` : botIds.join(', ');
-    console.log(this.formatMessage(chalk.magenta('MASS'), `${action} → [${botsStr}] ${msg}`));
+    console.log(this.formatMessage(chalk.magenta('MASS'), `${action} -> [${botsStr}] ${msg}`));
   }
 }
 
