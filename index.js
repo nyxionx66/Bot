@@ -6,7 +6,7 @@ const config = require('./config.json');
 const readline = require('readline');
 
 // Create and initialize main bot
-logger.info('🤖 Starting Mindle multi-bot system...');
+logger.info('Starting Mindle multi-bot system...');
 const mainBot = botManager.createBot(config);
 
 // Load commands and events for main bot
