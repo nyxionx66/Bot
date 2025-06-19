@@ -189,7 +189,7 @@ class BotManager {
     }
     this.bots.clear();
     this.activeBotId = null;
-    logger.info(`🛑 Disconnected ${count} bot(s)`);
+    logger.info(`Stopped ${count} bot(s)`);
   }
 
   getBotCount() {
