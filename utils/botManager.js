@@ -164,7 +164,7 @@ class BotManager {
         }
       }
       
-      logger.info(`🗑️ Removed bot '${botId}'`);
+      logger.info(`Removed bot '${botId}'`);
       return true;
     }
     return false;
