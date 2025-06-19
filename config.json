@@ -1,0 +1,9 @@
+{
+  "host": "mc.cwresports.lk",
+  "port": 25565,
+  "username": "Bot_1112",
+  "auth": "offline",
+  "version": "1.20.1",
+  "debug": false,
+  "printChat": true
+}
