@@ -66,7 +66,7 @@ rl.on('line', (input) => {
       allBots.forEach(bot => {
         reloadCommands(bot);
       });
-      logger.success(`🔄 Commands reloaded for ${allBots.length} bot(s)!`);
+      logger.success(`Commands reloaded for ${allBots.length} bot(s)!`);
     } catch (error) {
       logger.error(`Failed to reload commands: ${error.message}`);
     }
