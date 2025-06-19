@@ -79,8 +79,8 @@ rl.on('line', (input) => {
     const activeBot = botManager.getActiveBot();
     if (activeBot) {
       const commands = Array.from(activeBot.commands.keys());
-      logger.info(`📋 Available commands (${commands.length}): ${commands.join(', ')}`);
-      logger.info(`👑 Active bot: ${botManager.getActiveBotId()}`);
+      logger.info(`Available commands (${commands.length}): ${commands.join(', ')}`);
+      logger.info(`Active bot: ${botManager.getActiveBotId()}`);
     } else {
       logger.warn('No active bot available');
     }
