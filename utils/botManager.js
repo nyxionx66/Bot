@@ -40,7 +40,7 @@ class BotManager {
     bot.once('spawn', () => {
       const mcData = require('minecraft-data')(bot.version);
       bot.pathfinder.setMovements(new Movements(bot, mcData));
-      logger.success(`🎮 Bot '${botId}' spawned successfully`);
+      logger.success(`Bot '${botId}' spawned successfully`);
     });
 
     bot.on('login', () => {
