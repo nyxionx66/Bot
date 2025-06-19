@@ -111,7 +111,7 @@ class BotManager {
       }
     });
 
-    logger.success(`🤖 Created bot '${botId}' → ${botConfig.host}:${botConfig.port}`);
+    logger.success(`Created bot '${botId}' - ${botConfig.host}:${botConfig.port}`);
     return bot;
   }
 
