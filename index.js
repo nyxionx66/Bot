@@ -186,7 +186,7 @@ process.on('SIGINT', () => {
 });
 
 process.on('SIGTERM', () => {
-  logger.info('🛑 Received SIGTERM, shutting down all bots gracefully...');
+  logger.info('Received SIGTERM, shutting down all bots gracefully...');
   botManager.disconnectAll();
   rl.close();
   process.exit(0);
