@@ -121,9 +121,3 @@ class Logger {
   }
 }
 
-// Create default instance
-const logger = new Logger();
-
-// Export both the class and default instance
-module.exports = logger;
-module.exports.Logger = Logger;
