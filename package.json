@@ -1,0 +1,14 @@
+{
+  "name": "mineflayer-bot-base",
+  "version": "1.0.0",
+  "description": "Mineflayer bot with categorized command system",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "mineflayer": "^4.29.0",
+    "mineflayer-pathfinder": "^2.4.5"
+  }
+}
