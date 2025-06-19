@@ -44,12 +44,12 @@ class BotManager {
     });
 
     bot.on('login', () => {
-      logger.info(`✅ Bot '${botId}' connected → ${botConfig.host}:${botConfig.port}`);
+      logger.info(`Bot '${botId}' connected to ${botConfig.host}:${botConfig.port}`);
     });
 
     bot.on('end', (reason) => {
       const cleanReason = reason || 'Unknown';
-      logger.warn(`❌ Bot '${botId}' disconnected → ${cleanReason}`);
+      logger.warn(`Bot '${botId}' disconnected: ${cleanReason}`);
       this.removeBot(botId);
     });
 
@@ -58,9 +58,9 @@ class BotManager {
       if (err.message.includes('client timed out') || 
           err.message.includes('socketClosed') ||
           err.message.includes('keepAliveError')) {
-        logger.warn(`⚠️ Bot '${botId}' connection issue → ${err.message}`);
+        logger.warn(`Bot '${botId}' connection issue: ${err.message}`);
       } else {
-        logger.error(`💥 Bot '${botId}' error → ${err.message}`);
+        logger.error(`Bot '${botId}' error: ${err.message}`);
       }
     });
 
